@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace BlueOath.Models
 {
@@ -12,7 +14,7 @@ namespace BlueOath.Models
         public decimal Rate { get; set; }
         public string? Status { get; set; }
 
-        //[NotMapped]
+        [NotMapped]
         [DisplayName("Upload File")]
         public IFormFile? RoomImage { get; set; }
     }

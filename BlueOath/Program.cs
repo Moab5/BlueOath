@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using BlueOath.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<BlueOathContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("BlueOathContext") ?? throw new InvalidOperationException("Connection string 'BlueOathContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
