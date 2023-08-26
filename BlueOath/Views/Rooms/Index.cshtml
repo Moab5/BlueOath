@@ -4,56 +4,26 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="row my-4">
+    <h1 class="display-5 col">Rooms</h1>
+    <a asp-action="Create" class="btn btn-primary col-1" role="button">Create New Room</a>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.RoomType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Facilities)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="container mb-5">
+    <div class="row justify-content around">
 @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoomType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Facilities)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+        <div class="col-6 mb-1">
+            <div class="card">
+                <img decoding="async" src="@("~/image/"+item.Description)" asp-append-version="true" class="img-fluid" />
+                <div class="card-body">
+                    <h2 class="card-title">@Html.DisplayNameFor(model => model.RoomType): @Html.DisplayFor(modelItem => item.RoomType)</h2>
+                    <p class="card-text">@Html.DisplayNameFor(model => model.Facilities): @Html.DisplayFor(modelItem => item.Facilities)</p>
+                    <p class="card-text">@Html.DisplayNameFor(model => model.Status): @Html.DisplayFor(modelItem => item.Status)</p>
+                    <h2 class="card-title">@Html.DisplayNameFor(model => model.Rate): @Html.DisplayFor(modelItem => item.Rate)</h2>
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Details</a>
+                </div>
+            </div>
+        </div>
 }
-    </tbody>
-</table>
+    </div>
+</div>

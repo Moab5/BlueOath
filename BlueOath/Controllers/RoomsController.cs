@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BlueOath.Data;
 using BlueOath.Models;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Hosting;
 
 namespace BlueOath.Controllers
 {
     public class RoomsController : Controller
     {
         private readonly BlueOathContext _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public RoomsController(BlueOathContext context)
+        public RoomsController(BlueOathContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            this._hostEnvironment = hostEnvironment;
         }
 
         // GET: Rooms
@@ -56,10 +60,20 @@ namespace BlueOath.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,RoomType,Facilities,Description,Rate,Status")] Room room)
+        public async Task<IActionResult> Create([Bind("Id,RoomType,Facilities,RoomImage,Rate,Status")] Room room)
         {
             if (ModelState.IsValid)
             {
+                //Save image to wwwroot/image
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                string fileName = Path.GetFileNameWithoutExtension(room.RoomImage.FileName);
+                string extension = Path.GetExtension(room.RoomImage.FileName);
+                room.Description = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                string path = Path.Combine(wwwRootPath + "/Image/", fileName);
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    await room.RoomImage.CopyToAsync(fileStream);
+                }
                 _context.Add(room);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -146,6 +160,14 @@ namespace BlueOath.Controllers
                 return Problem("Entity set 'BlueOathContext.Room'  is null.");
             }
             var room = await _context.Room.FindAsync(id);
+            //delete image from wwwroot/image
+            var imagePath = Path.Combine(_hostEnvironment.WebRootPath, "image", room.Description);
+
+            if (System.IO.File.Exists(imagePath))
+                System.IO.File.Delete(imagePath);
+            //delete the record
+            _context.Room.Remove(room);
+
             if (room != null)
             {
                 _context.Room.Remove(room);
