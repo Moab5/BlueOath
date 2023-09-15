@@ -9,9 +9,11 @@ using BlueOath.Data;
 using BlueOath.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BlueOath.Controllers
 {
+    [Authorize]
     public class RoomsController : Controller
     {
         private readonly BlueOathContext _context;
