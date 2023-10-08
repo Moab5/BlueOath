@@ -1,14 +1,16 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using BlueOath.Data;
 using Microsoft.AspNetCore.Identity;
 using BlueOath.Areas.Identity.Data;
+using BlueOathContext = BlueOath.Areas.Identity.Data.BlueOathContext;
+
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<BlueOath.Data.BlueOathContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("BlueOathContext") ?? throw new InvalidOperationException("Connection string 'BlueOathContext' not found.")));
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<BlueOath.Areas.Identity.Data.BlueOathContext>();builder.Services.AddDbContext<BlueOath.Areas.Identity.Data.BlueOathContext>(options =>
+
+builder.Services.AddDbContext<BlueOathContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("BlueOathContext")));
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<BlueOathContext>();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

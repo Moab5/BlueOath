@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6295d93c-c0f3-4934-afb3-476c4d7f1910" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/BlueOath.sln" beforeDir="false" afterPath="$PROJECT_DIR$/BlueOath.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlueOath/Areas/Identity/Data/BlueOathContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlueOath/Areas/Identity/Data/BlueOathContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlueOath/Controllers/RoomsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlueOath/Controllers/RoomsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlueOath/Models/Room.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlueOath/Models/Room.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlueOath/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlueOath/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlueOath/Views/Shared/_LoginPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BlueOath/Views/Shared/_LoginPartial.cshtml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="2WNzwB5gHnaW3x15RNF59LaYUza" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "preferences.updates"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <created>1696588067567</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1696588067567</updated>
+      <workItem from="1696588085838" duration="14000" />
+    </task>
+    <servers />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
